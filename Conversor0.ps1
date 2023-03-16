@@ -1,4 +1,5 @@
-﻿Set-Location "C:\Users\$env:username\Desktop"
+$path = "C:\Users\$env:username\Desktop"
+Set-Location $path
 
 $perm = Get-ExecutionPolicy
 
@@ -129,7 +130,7 @@ Process
 
 Write-host "`nSelecione o arquivo de imagem.`n" -ForegroundColor Yellow
 Add-Type -AssemblyName System.Windows.Forms
-$DefaultPatch = "C:\Users\$env:username\Desktop" 
+$DefaultPatch = $path
 $FileBrowser = New-Object System.Windows.Forms.OpenFileDialog -Property @{ 
     InitialDirectory = $DefaultPatch
     MultiSelect = $true
