@@ -7,8 +7,8 @@
 #$unica = New-JobTrigger -Once -At (Get-Date).AddMinutes(10)
 $quartas = New-JobTrigger -Weekly -DaysOfWeek Wednesday  -At 4pm
 
-$source = "C:\Users\TI01\Desktop"
-$dest = "U:\TI01\Arquivos\DesktopBackup.zip"
+$source = #pasta para o backup ser realizado
+$dest = #pasta de destino do backup
 
 Register-ScheduledJob -Name Backup -Trigger $quartas -ScriptBlock{
     Compress-Archive -Path $source -DestinationPath $dest -Force
